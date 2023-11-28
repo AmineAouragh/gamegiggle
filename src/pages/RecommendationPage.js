@@ -30,7 +30,7 @@ export default function RecommendationPage() {
             <h2 className="text-4xl mb-16 font-semibold">
                 Hurry! Click for Your Next Gaming Adventure!
             </h2>
-            <button type="button" onClick={fetchGames} className="shadow-lg font-bold rounded-lg bg-blue-800 text-gray-50 px-3 py-2">Get random recommendation</button>  
+            <button type="button" onClick={fetchGames} className="shadow-lg font-bold rounded-lg bg-blue-600 text-gray-50 px-5 py-4">Get random recommendation</button>  
             {
                 clicked &&
                 <div className="grid mt-8 grid-columns-2 grid-rows-5 gap-4">
