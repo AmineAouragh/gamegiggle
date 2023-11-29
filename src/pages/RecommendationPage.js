@@ -25,24 +25,35 @@ export default function RecommendationPage() {
         }
      
     return (
-        <div className={`w-full h-full flex flex-col justify-center items-center ${clicked ? 'relative' : 'absolute'} my-4`}>
-            <h1 className="text-6xl text-blue-600 font-bold mb-10">GameGiggle</h1>
-            <h2 className="text-4xl mb-16 font-semibold">
-                Hurry! Click for Your Next Gaming Adventure!
+        <div className={`w-full h-full flex bg-yellow-300 flex-col justify-center items-center ${clicked ? 'absolute' : 'absolute'} py-4`}>
+            <h1 className="text-6xl text-blue-600 font-bold mb-10">GameGiggle 🎮</h1>
+            <h2 className="text-4xl mb-8 text-center text-blue-600 font-semibold">
+                A video game recommendation platform for gamers
             </h2>
-            <button type="button" onClick={fetchGames} className="shadow-lg font-bold rounded-lg bg-blue-600 text-gray-50 px-5 py-4">Get random recommendation</button>  
+            
+            {  
+                clicked == false &&
+                <>
+                  <h3 className="text-3xl mb-10 font-semibold">
+                    Hurry! Click for Your Next Gaming Adventure!
+                  </h3>
+                  <button type="button" onClick={fetchGames} className="shadow-lg font-bold rounded-lg text-xl transition duration-300 hover:scale-110 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-400 bg-blue-600 text-gray-50 px-5 py-4">Game me up!</button>  
+                </>
+                
+            }
+            
             {
                 clicked &&
-                <div className="grid mt-8 grid-columns-2 grid-rows-5 gap-4">
-                    {
-                        <div id={recommendation.id}>
-                            <Image className="rounded-lg" alt={recommendation.name} src={recommendation.background_image} width={800} height={100} />
-                            <p className="text-center text-4xl">{recommendation.name}</p>
-                        </div>  
-                    }
-                </div>
-                
-            }     
+                    <>
+                    <div id={recommendation.id} className="border-4 border-blue-600 rounded-xl">
+                        <p className="text-center px-5 py-3 rounded-tr-lg rounded-tl-lg bg-blue-600 text-yellow-300 text-blue-500 font-bold text-4xl">{recommendation.name}</p>
+                        <Image className="rounded-br-lg rounded-bl-lg" alt={recommendation.name} src={recommendation.background_image} width={800} height={100} />
+                    </div> 
+                    <button type="button" onClick={fetchGames} className="mt-8 shadow-lg font-bold rounded-lg text-xl transition duration-300 hover:scale-110 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-400 bg-blue-600 text-gray-50 px-5 py-4">Try a new gem!</button>
+                    </>  
+            }  
+     
+           
         </div>
     )
 }
