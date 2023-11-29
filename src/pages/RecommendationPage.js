@@ -26,14 +26,14 @@ export default function RecommendationPage() {
      
     return (
         <div className={`w-full h-full bg-yellow-300 flex flex-col justify-center items-center ${clicked ? 'absolute' : 'absolute'} py-4`}>
-            <h1 className="text-6xl text-blue-600 font-bold mb-10">GameGiggle 🎮</h1>
-            <h2 className="text-4xl text-blue-600 mb-10 font-semibold">
+            <h1 className="text-6xl text-center text-blue-600 font-bold mb-10">GameGiggle 🎮</h1>
+            <h2 className="text-4xl text-center text-blue-600 mb-10 font-semibold">
                 A video game recommendation platform for gamers
             </h2>
             {
                 clicked == false &&
                 <>
-                <h3 className="text-3xl mb-10 font-semibold">
+                <h3 className="text-3xl text-center mb-10 font-semibold">
                   Hurry! Click for Your Next Gaming Adventure!
                 </h3>
                 <button type="button" onClick={fetchGames} className="shadow-lg transition duration-300 hover:scale-110 hover:shadow-blue-500 hover:bg-blue-500 font-bold text-lg font-bold rounded-lg bg-blue-600 text-gray-50 px-5 py-4">Game me up!</button>  
