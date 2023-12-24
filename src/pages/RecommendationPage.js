@@ -8,7 +8,7 @@ export default function RecommendationPage() {
     const [ games, setGames ] = useState([])
     const [ recommendation, setRecommendation ] = useState([])
     const [ clicked, setClicked ] = useState(false)
-    const RAWG_API_KEY = "b65bd6cce1a04cf9b0f620274e44eef5"
+    const RAWG_API_KEY = process.env.NEXT_PUBLIC_RAWG_API_KEY
 
 
         const fetchGames = async () => {
@@ -31,26 +31,22 @@ export default function RecommendationPage() {
               <link rel="preconnect" href="https://fonts.googleapis.com" />
               <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
               <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet" />
-              
+              <title>GameGiggle - THE video game recommendation platform for real gamers</title>
+              <meta name="description" content="GameGiggle is your go-to platform for discovering new video game gems. Join a community of passionate gamers and elevate your playtime today." />
             </Head>
-            <h2 className="text-4xl text-gray-800 font-poppins font-bold mb-10">GameGiggle</h2>
+            <h2 className="text-2xl lg:text-4xl text-gray-800 font-poppins font-bold mb-10">GameGiggle</h2>
             {
                 clicked == false &&
                 <>
-            <h1 className="text-4xl md:text-6xl font-poppins xl:text-8xl w-full xl:w-1/2 mb-8 text-center text-gray-800 font-extrabold">
-                THE video game recommendation platform for <span className="bg-gray-800 text-yellow-300 inline-flex p-2">real gamers.</span>
-            </h1>
-            
-             
-               
-                
-                  <h3 className="text-3xl font-poppins text-center mb-6 font-semibold">
+                  <h1 className="text-4xl md:text-6xl font-poppins xl:text-8xl w-full xl:w-1/2 mb-8 text-center text-gray-800 font-extrabold">
+                    THE video game recommendation platform for <span className="bg-gray-800 text-yellow-300 inline-flex p-2">real gamers.</span>
+                  </h1>
+                  <h3 className="text-xl lg:text-3xl font-poppins text-center mb-6 font-semibold">
                     Don't know what to play? Hurry!
                   </h3>
                   <p className="text-4xl mb-4">👇</p>
                   <button type="button" onClick={fetchGames} className="font-bold transition font-poppins duration-1000 rounded-3xl text-2xl lg:text-4xl hover:scale-110 hover:bg-gray-800 shadow-lg shadow-gray-800 bg-gray-800 text-yellow-300 px-5 py-4">Find your game</button>  
-                </>
-                
+                </>   
             }
             
             {
