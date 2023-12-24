@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import Head from 'next/head'
 
 export default function RecommendationPage() {
 
@@ -26,18 +27,28 @@ export default function RecommendationPage() {
      
     return (
         <div className={`w-full h-full flex bg-yellow-300 flex-col justify-center items-center ${clicked ? 'absolute' : 'absolute'} py-4`}>
-            <h1 className="text-6xl text-blue-600 font-bold mb-10">GameGiggle 🎮</h1>
-            <h2 className="text-4xl mb-8 text-center text-blue-600 font-semibold">
-                A video game recommendation platform for gamers
-            </h2>
-            
-            {  
+            <Head>
+              <link rel="preconnect" href="https://fonts.googleapis.com" />
+              <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+              <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet" />
+              
+            </Head>
+            <h2 className="text-4xl text-gray-800 font-poppins font-bold mb-10">GameGiggle</h2>
+            {
                 clicked == false &&
                 <>
-                  <h3 className="text-3xl mb-10 font-semibold">
-                    Hurry! Click for Your Next Gaming Adventure!
+            <h1 className="text-4xl md:text-6xl font-poppins xl:text-8xl w-full xl:w-1/2 mb-8 text-center text-gray-800 font-extrabold">
+                THE video game recommendation platform for <span className="bg-gray-800 text-yellow-300 inline-flex p-2">real gamers.</span>
+            </h1>
+            
+             
+               
+                
+                  <h3 className="text-3xl font-poppins text-center mb-6 font-semibold">
+                    Don't know what to play? Hurry!
                   </h3>
-                  <button type="button" onClick={fetchGames} className="shadow-lg font-bold rounded-lg text-xl transition duration-300 hover:scale-110 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-400 bg-blue-600 text-gray-50 px-5 py-4">Game me up!</button>  
+                  <p className="text-4xl mb-4">👇</p>
+                  <button type="button" onClick={fetchGames} className="font-bold transition font-poppins duration-1000 rounded-3xl text-2xl lg:text-4xl hover:scale-110 hover:bg-gray-800 shadow-lg shadow-gray-800 bg-gray-800 text-yellow-300 px-5 py-4">Find your game</button>  
                 </>
                 
             }
@@ -45,11 +56,11 @@ export default function RecommendationPage() {
             {
                 clicked &&
                     <>
-                    <div id={recommendation.id} className="border-4 border-blue-600 rounded-xl">
-                        <p className="text-center px-5 py-3 rounded-tr-lg rounded-tl-lg bg-blue-600 text-yellow-300 text-blue-500 font-bold text-4xl">{recommendation.name}</p>
+                    <div id={recommendation.id} className="border-4 border-gray-800 rounded-xl">
+                        <p className="text-center font-poppins px-5 py-3 rounded-tr-lg rounded-tl-lg bg-gray-800 text-yellow-300 font-bold text-4xl">{recommendation.name}</p>
                         <Image className="rounded-br-lg rounded-bl-lg" alt={recommendation.name} src={recommendation.background_image} width={800} height={100} />
                     </div> 
-                    <button type="button" onClick={fetchGames} className="mt-8 shadow-lg font-bold rounded-lg text-xl transition duration-300 hover:scale-110 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-400 bg-blue-600 text-gray-50 px-5 py-4">Try a new gem!</button>
+                    <button type="button" onClick={fetchGames} className="mt-8 font-poppins shadow-lg font-bold rounded-3xl text-3xl transition duration-1000 hover:scale-110 hover:bg-gray-800 hover:shadow-lg hover:shadow-gray-600 bg-gray-800 text-yellow-300 px-5 py-3">Try a new gem!</button>
                     </>  
             }  
      
