@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import Head from 'next/head'
 
 export default function RecommendationPage() {
 
     const [ games, setGames ] = useState([])
     const [ recommendation, setRecommendation ] = useState([])
     const [ clicked, setClicked ] = useState(false)
-    const RAWG_API_KEY = "b65bd6cce1a04cf9b0f620274e44eef5"
+    const RAWG_API_KEY = process.env.NEXT_PUBLIC_RAWG_API_KEY
 
 
         const fetchGames = async () => {
@@ -25,34 +26,41 @@ export default function RecommendationPage() {
         }
      
     return (
-        <div className={`w-full h-full bg-yellow-300 flex flex-col justify-center items-center ${clicked ? 'absolute' : 'absolute'} py-4`}>
-            <h2 className="text-6xl text-center text-blue-600 font-bold mb-10">GameGiggle 🎮</h2>
-            <h1 className="text-4xl text-center text-blue-600 mb-10 font-semibold">
-                A video game recommendation platform for gamers
-            </h1>
+        <div className={`w-full h-full flex bg-yellow-300 flex-col justify-center items-center ${clicked ? 'absolute' : 'absolute'} py-4`}>
+            <Head>
+              <link rel="preconnect" href="https://fonts.googleapis.com" />
+              <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+              <link rel="icon" href="/gamegiggle-favicon.ico" />
+              <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet" />
+              <title>GameGiggle - THE video game recommendation platform for real gamers</title>
+              <meta name="description" content="GameGiggle is your go-to platform for discovering new video game gems. Join a community of passionate gamers and elevate your playtime today." />
+            </Head>
+            <h2 className="text-2xl lg:text-4xl text-gray-800 font-poppins font-bold mb-10">GameGiggle</h2>
             {
                 clicked == false &&
                 <>
-                <h3 className="text-3xl text-center mb-10 font-semibold">
-                  Don't know what to play? Hurry! Click for Your Next Gaming Adventure!
-                </h3>
-                <button type="button" onClick={fetchGames} className="shadow-lg transition duration-300 hover:scale-110 hover:shadow-blue-500 hover:bg-blue-500 font-bold text-lg font-bold rounded-lg bg-blue-600 text-gray-50 px-5 py-4">Game me up!</button>  
-                </>            
-           }
+                  <h1 className="text-4xl md:text-6xl font-poppins xl:text-8xl w-full xl:w-1/2 mb-8 text-center text-gray-800 font-extrabold">
+                    THE video game recommendation platform for <span className="bg-gray-800 text-yellow-300 inline-flex p-2">real gamers.</span>
+                  </h1>
+                  <h3 className="text-xl lg:text-3xl font-poppins text-center mb-6 font-semibold">
+                    Don't know what to play? Hurry!
+                  </h3>
+                  <p className="text-4xl mb-4">👇</p>
+                  <button type="button" onClick={fetchGames} className="font-bold transition font-poppins duration-1000 rounded-3xl text-2xl lg:text-4xl hover:scale-110 hover:bg-gray-800 shadow-lg shadow-gray-800 bg-gray-800 text-yellow-300 px-5 py-4">Find your game</button>  
+                </>   
+            }
             
             {
                 clicked &&
-                <div className="flex flex-col items-center">
+                <div className="grid mt-8 grid-columns-2 grid-rows-5 gap-4">
                     {
-                        <div id={recommendation.id} className="border-4 border-blue-600 rounded-lg">
-                            <p className="px-5 py-3 bg-blue-600 text-yellow-300 font-bold text-center text-4xl">{recommendation.name}</p>
-                            <Image className="rounded-bl-lg rounded-br-lg" alt={recommendation.name} src={recommendation.background_image} width={800} height={100} />
-                            
+                        <div id={recommendation.id}>
+                            <Image className="rounded-lg" alt={recommendation.name} src={recommendation.background_image} width={800} height={100} />
+                            <p className="text-center text-4xl">{recommendation.name}</p>
                         </div>  
                     }
-                    <button type="button" onClick={fetchGames} className="shadow-lg mt-8 transition duration-300 hover:scale-110 hover:shadow-blue-500 hover:bg-blue-500 font-bold text-lg font-bold rounded-lg bg-blue-600 text-gray-50 px-5 py-4">Try another gem!</button>  
-                    <p className="text-blue-800 font-bold text-center absolute bottom-2">Thanks to RAWG.io for providing the data used in GameGiggle</p>
-                </div> 
+                </div>
+                
             }     
         </div>
     )
