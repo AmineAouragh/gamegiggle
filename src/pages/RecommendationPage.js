@@ -60,7 +60,8 @@ export default function RecommendationPage() {
                     <button type="button" onClick={fetchGames} className="mt-8 font-poppins shadow-lg font-bold rounded-3xl text-3xl transition duration-1000 hover:scale-110 hover:bg-gray-800 hover:shadow-lg hover:shadow-gray-600 bg-gray-800 text-yellow-300 px-5 py-3">Try a new gem!</button>
                 </> 
                 
-            }     
+            } 
+            <p className="mt-12">Thanks to <Link href="https://rawg.io"><span className="text-blue-700 font-semibold">rawg.io</span></Link> for providing the data used in GameGiggle</p>    
         </div>
     )
 }
