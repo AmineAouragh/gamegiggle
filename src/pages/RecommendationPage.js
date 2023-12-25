@@ -11,19 +11,19 @@ export default function RecommendationPage() {
     const RAWG_API_KEY = process.env.NEXT_PUBLIC_RAWG_API_KEY
 
 
-        const fetchGames = async () => {
-            setClicked(true)
-            try {
-                const response = await fetch(`https://api.rawg.io/api/games?key=${RAWG_API_KEY}&page=1`)
-                const data = await response.json()
-                setGames(data.results)
-                const randomGame = data.results[Math.floor(Math.random() * data.results.length)]
-                setRecommendation(randomGame)
-                console.log(data.results)
-            } catch(error) {
-                console.error("Error occured while fetching games: ", error)
-            }
+    const fetchGames = async () => {
+        setClicked(true)
+        try {
+            const response = await fetch(`https://api.rawg.io/api/games?key=${RAWG_API_KEY}&page=1`)
+            const data = await response.json()
+            setGames(data.results)
+            const randomGame = data.results[Math.floor(Math.random() * data.results.length)]
+            setRecommendation(randomGame)
+            console.log(data.results)
+        } catch(error) {
+            console.error("Error occured while fetching games: ", error)
         }
+    }
      
     return (
         <div className={`w-full h-full flex bg-yellow-300 flex-col justify-center items-center ${clicked ? 'absolute' : 'absolute'} py-4`}>
