@@ -52,14 +52,14 @@ export default function RecommendationPage() {
             
             {
                 clicked &&
-                <div className="grid mt-8 grid-columns-2 grid-rows-5 gap-4">
-                    {
-                        <div id={recommendation.id}>
-                            <Image className="rounded-lg" alt={recommendation.name} src={recommendation.background_image} width={800} height={100} />
-                            <p className="text-center text-4xl">{recommendation.name}</p>
-                        </div>  
-                    }
-                </div>
+                <>
+                    <div id={recommendation.id} className="border-4 border-gray-800 rounded-xl">
+                        <p className="text-center font-poppins px-5 py-3 rounded-tr-lg rounded-tl-lg bg-gray-800 text-yellow-300 font-bold text-4xl">{recommendation.name}</p>
+                        <Image className="rounded-br-lg rounded-bl-lg" alt={recommendation.name} src={recommendation.background_image} width={800} height={100} />
+                    </div> 
+                    <button type="button" onClick={fetchGames} className="mt-8 font-poppins shadow-lg font-bold rounded-3xl text-3xl transition duration-1000 hover:scale-110 hover:bg-gray-900 shadow-lg shadow-yellow-600 bg-gray-800 text-yellow-300 px-5 py-3">Try a new gem!</button>
+                    <p className="mt-8 font-semibold text-center font-poppins">Not satisfied with the random recommendations? Get a video game recommendation tailored <Link href="/just-for-you"><span className="bg-gray-800 text-yellow-400 p-1">just for you.</span></Link></p>
+                </> 
                 
             }     
         </div>
