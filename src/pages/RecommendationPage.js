@@ -8,7 +8,7 @@ export default function RecommendationPage() {
     const [ games, setGames ] = useState([])
     const [ recommendation, setRecommendation ] = useState([])
     const [ clicked, setClicked ] = useState(false)
-    const RAWG_API_KEY = "fa6d555be98a4d59b40c3c641c4b8231"
+    const RAWG_API_KEY = process.env.NEXT_PUBLIC_RAWG_API_KEY
 
 
     const fetchGames = async () => {
