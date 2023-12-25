@@ -30,6 +30,7 @@ export default function RecommendationPage() {
             <Head>
               <link rel="preconnect" href="https://fonts.googleapis.com" />
               <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+              <link rel="icon" href="/gamegiggle-favicon.ico" />
               <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet" />
               <title>GameGiggle - THE video game recommendation platform for real gamers</title>
               <meta name="description" content="GameGiggle is your go-to platform for discovering new video game gems. Join a community of passionate gamers and elevate your playtime today." />
