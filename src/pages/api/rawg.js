@@ -1,0 +1,1 @@
+export const rawg_api_key = "fa6d555be98a4d59b40c3c641c4b8231"

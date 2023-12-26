@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Head from 'next/head'
+import { rawg_api_key } from './api/rawg'
 
 
 export default function RecommendationPage() {
@@ -9,13 +10,12 @@ export default function RecommendationPage() {
     const [ games, setGames ] = useState([])
     const [ recommendation, setRecommendation ] = useState([])
     const [ clicked, setClicked ] = useState(false)
-    const RAWG_API_KEY = process.env.NEXT_PUBLIC_RAWG_API_KEY
 
 
     const fetchGames = async () => {
         setClicked(true)
         try {
-            const response = await fetch(`https://api.rawg.io/api/games?key=${RAWG_API_KEY}&page=1`)
+            const response = await fetch(`https://api.rawg.io/api/games?key=${rawg_api_key}&page=1`)
             const data = await response.json()
             setGames(data.results)
             const randomGame = data.results[Math.floor(Math.random() * data.results.length)]
@@ -53,6 +53,7 @@ export default function RecommendationPage() {
             {
                 clicked &&
                 <>
+                    <p className="text-2xl mb-8 font-semibold font-poppins">recommends... </p>
                     <div id={recommendation.id} className="border-4 border-gray-800 w-full sm:w-2/3 lg:w-1/2 xl:w-1/3 rounded-xl">
                         <p className="text-center font-poppins px-5 py-3 rounded-tr-lg rounded-tl-lg bg-gray-800 text-yellow-300 font-bold text-4xl">{recommendation.name}</p>
                         <Image className="rounded-br-lg rounded-bl-lg" alt={recommendation.name} src={recommendation.background_image} width={800} height={100} />
