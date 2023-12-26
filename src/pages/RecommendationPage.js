@@ -27,10 +27,9 @@ export default function RecommendationPage() {
     }
      
     return (
-        <div className={`w-full h-full flex bg-yellow-300 flex-col justify-center items-center ${clicked ? 'absolute' : 'absolute'} py-4`}>
+        <div className={`w-full h-full flex bg-yellow-300 flex-col justify-center items-center ${clicked ? 'absolute' : 'absolute'} py-4 px-2`}>
             <Head>
               <link rel="preconnect" href="https://fonts.googleapis.com" />
-              <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
               <link rel="icon" href="/gamegiggle-favicon.ico" />
               <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet" />
               <title>GameGiggle - THE video game recommendation platform for real gamers</title>
@@ -54,7 +53,7 @@ export default function RecommendationPage() {
             {
                 clicked &&
                 <>
-                    <div id={recommendation.id} className="border-4 border-gray-800 rounded-xl">
+                    <div id={recommendation.id} className="border-4 border-gray-800 w-full sm:w-2/3 lg:w-1/2 xl:w-1/3 rounded-xl">
                         <p className="text-center font-poppins px-5 py-3 rounded-tr-lg rounded-tl-lg bg-gray-800 text-yellow-300 font-bold text-4xl">{recommendation.name}</p>
                         <Image className="rounded-br-lg rounded-bl-lg" alt={recommendation.name} src={recommendation.background_image} width={800} height={100} />
                     </div> 
