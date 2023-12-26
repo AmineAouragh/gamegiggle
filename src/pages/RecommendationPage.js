@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Head from 'next/head'
 
+
 export default function RecommendationPage() {
 
     const [ games, setGames ] = useState([])
@@ -61,7 +62,7 @@ export default function RecommendationPage() {
                 </> 
                 
             } 
-            <p className="mt-12">Thanks to <Link href="https://rawg.io"><span className="text-blue-700 font-semibold">rawg.io</span></Link> for providing the data used in GameGiggle</p>    
+            <p className="mt-12 text-center">Thanks to <Link href="https://rawg.io"><span className="text-blue-700 font-semibold">rawg.io</span></Link> for providing the data used in GameGiggle</p>    
         </div>
     )
 }
